@@ -8,7 +8,7 @@ printf "%s" "- cmd: z fzf
   when: 1612201440
 - cmd: git status
   when: 1612201444
-- cmd: function select_me\necho I\\'m just testing\nend
+- cmd: function select_me\\necho I\\'m just testing\\nend
   when: 1612201475
 - cmd: history
   when: 1612201479
