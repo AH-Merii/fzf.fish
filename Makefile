@@ -22,13 +22,13 @@ lint:  ## Check formatting
 	@echo "$(YELLOW)Checking fish formatting...$(NC)"
 	@fish_indent --check **/*.fish
 	@echo "$(YELLOW)Checking prettier formatting...$(NC)"
-	@npx prettier --check .
+	@bunx prettier --check .
 
 format:  ## Auto-fix formatting
 	@echo "$(YELLOW)Formatting fish files...$(NC)"
 	@fish_indent -w **/*.fish
 	@echo "$(YELLOW)Formatting with prettier...$(NC)"
-	@npx prettier --write .
+	@bunx prettier --write .
 
 check: lint test  ## Run all checks
 
