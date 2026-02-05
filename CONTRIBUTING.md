@@ -48,18 +48,35 @@ git push origin main
    fisher install .
    ```
 
+### Local Development with Make
+
+A Makefile is provided for common development tasks:
+
+```bash
+make help    # Show available commands
+make test    # Run test suite
+make lint    # Check formatting (fish_indent + prettier)
+make format  # Auto-fix formatting issues
+make check   # Run all checks (lint + test)
+make ci      # Simulate full CI pipeline locally
+```
+
 ### Running Tests
 
 Run the test suite before submitting:
 
-```fish
+```bash
+make test
+# Or directly:
 fishtape tests/*/*.fish
 ```
 
 ### Code Style
 
-- Run `fish_indent` on Fish files before committing
-- Run `prettier --check .` for Markdown and YAML files
+- Run `make format` to auto-fix all formatting issues, or manually:
+  - Run `fish_indent -w` on Fish files before committing
+  - Run `npx prettier --write .` for Markdown and YAML files
+- Run `make lint` to check formatting without modifying files
 
 ## Commit Convention
 
