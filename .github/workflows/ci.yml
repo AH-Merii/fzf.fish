@@ -58,11 +58,47 @@ jobs:
 
       - uses: fish-actions/format-check@v1
 
-  # check Markdown and Yaml format
+  # check Markdown and YAML format
   prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actionsx/prettier@v3
+      - uses: oven-sh/setup-bun@v2
+      - run: bunx prettier --check .
+
+  # Auto-format PR branches when checks fail
+  auto-format:
+    needs: [format-check, prettier]
+    if: >-
+      always() &&
+      github.event_name == 'pull_request' &&
+      (needs.format-check.result == 'failure' || needs.prettier.result == 'failure')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
         with:
-          args: --check .
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: fish-actions/install-fish@v1.2.0
+        if: needs.format-check.result == 'failure'
+
+      - name: Format fish files
+        if: needs.format-check.result == 'failure'
+        run: fish_indent -w **/*.fish
+        shell: fish {0}
+
+      - uses: oven-sh/setup-bun@v2
+        if: needs.prettier.result == 'failure'
+
+      - name: Format with prettier
+        if: needs.prettier.result == 'failure'
+        run: bunx prettier --write .
+
+      - name: Commit formatting fixes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "style: auto-format code"

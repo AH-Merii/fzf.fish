@@ -75,7 +75,7 @@ fishtape tests/*/*.fish
 
 - Run `make format` to auto-fix all formatting issues, or manually:
   - Run `fish_indent -w` on Fish files before committing
-  - Run `npx prettier --write .` for Markdown and YAML files
+  - Run `bunx prettier --write .` for Markdown and YAML files
 - Run `make lint` to check formatting without modifying files
 
 ## Commit Convention
