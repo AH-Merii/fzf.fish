@@ -53,10 +53,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-
       - uses: fish-actions/install-fish@v1.2.0
 
-      - uses: fish-actions/format-check@v1
+      - name: Check fish formatting
+        run: make lint-fish
+        shell: fish {0}
 
   # check Markdown and YAML format
   prettier:
@@ -64,7 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
-      - run: bunx prettier --check .
+      - run: make lint-prettier
 
   # Auto-format PR branches when checks fail
   auto-format:
@@ -84,19 +85,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: fish-actions/install-fish@v1.2.0
-        if: needs.format-check.result == 'failure'
-
-      - name: Format fish files
-        if: needs.format-check.result == 'failure'
-        run: fish_indent -w **/*.fish
-        shell: fish {0}
-
       - uses: oven-sh/setup-bun@v2
-        if: needs.prettier.result == 'failure'
 
-      - name: Format with prettier
-        if: needs.prettier.result == 'failure'
-        run: bunx prettier --write .
+      - name: Auto-format all files
+        run: make format
+        shell: fish {0}
 
       - name: Commit formatting fixes
         uses: stefanzweifel/git-auto-commit-action@v7

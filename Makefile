@@ -1,4 +1,4 @@
-.PHONY: help test lint format check ci
+.PHONY: help test lint lint-fish lint-prettier format format-fish format-prettier check ci
 
 # Colors
 GREEN  := \033[0;32m
@@ -12,23 +12,31 @@ help:  ## Show this help
 	@echo "$(BOLD)fzf.fish Development Commands$(NC)"
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
-		awk 'BEGIN {FS = ":.*?## "}; {printf "  $(CYAN)%-12s$(NC) %s\n", $$1, $$2}'
+		awk 'BEGIN {FS = ":.*?## "}; {printf "  $(CYAN)%-16s$(NC) %s\n", $$1, $$2}'
 
 test:  ## Run test suite
 	@echo "$(YELLOW)Running tests...$(NC)"
 	@fishtape tests/*/*.fish
 
-lint:  ## Check formatting
+lint-fish:  ## Check fish formatting
 	@echo "$(YELLOW)Checking fish formatting...$(NC)"
 	@fish_indent --check **/*.fish
+
+lint-prettier:  ## Check prettier formatting
 	@echo "$(YELLOW)Checking prettier formatting...$(NC)"
 	@bunx prettier --check .
 
-format:  ## Auto-fix formatting
+lint: lint-fish lint-prettier  ## Check all formatting
+
+format-fish:  ## Auto-fix fish formatting
 	@echo "$(YELLOW)Formatting fish files...$(NC)"
 	@fish_indent -w **/*.fish
+
+format-prettier:  ## Auto-fix prettier formatting
 	@echo "$(YELLOW)Formatting with prettier...$(NC)"
 	@bunx prettier --write .
+
+format: format-fish format-prettier  ## Auto-fix all formatting
 
 check: lint test  ## Run all checks
 
