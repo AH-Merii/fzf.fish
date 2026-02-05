@@ -77,17 +77,17 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org) fo
 
 ### Commit Types and Version Effects
 
-| Type       | Version Bump | Use for                          |
-| ---------- | ------------ | -------------------------------- |
-| `feat:`    | MINOR        | New features                     |
-| `fix:`     | PATCH        | Bug fixes                        |
-| `perf:`    | PATCH        | Performance improvements         |
-| `docs:`    | None         | Documentation only               |
-| `style:`   | None         | Formatting changes               |
-| `refactor:`| None         | Code restructuring               |
-| `test:`    | None         | Adding/updating tests            |
-| `chore:`   | None         | Build/tooling changes            |
-| (no prefix)| PATCH        | Fallback for non-conventional    |
+| Type        | Version Bump | Use for                       |
+| ----------- | ------------ | ----------------------------- |
+| `feat:`     | MINOR        | New features                  |
+| `fix:`      | PATCH        | Bug fixes                     |
+| `perf:`     | PATCH        | Performance improvements      |
+| `docs:`     | None         | Documentation only            |
+| `style:`    | None         | Formatting changes            |
+| `refactor:` | None         | Code restructuring            |
+| `test:`     | None         | Adding/updating tests         |
+| `chore:`    | None         | Build/tooling changes         |
+| (no prefix) | PATCH        | Fallback for non-conventional |
 
 ### Examples
 
@@ -123,6 +123,7 @@ Breaking changes trigger a MAJOR version bump. Indicate them by:
 
 - Adding `!` after the type: `feat!: remove deprecated fzf_legacy_keybindings`
 - Or adding `BREAKING CHANGE:` in the commit footer:
+
   ```
   feat: redesign keybinding configuration
 
@@ -148,6 +149,7 @@ Breaking changes trigger a MAJOR version bump. Indicate them by:
 ## Submitting a Pull Request
 
 1. Push your branch to your fork:
+
    ```bash
    git push origin your-feature-name
    ```
