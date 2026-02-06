@@ -1,3 +1,10 @@
+## [0.0.2](https://github.com/AH-Merii/fzf.fish/compare/v0.0.1...v0.0.2) (2026-02-06)
+
+
+### Bug Fixes
+
+* **ci:** ignore auto-generated CHANGELOG.md in prettier checks ([33a1e98](https://github.com/AH-Merii/fzf.fish/commit/33a1e98497cf46a9dcc9f1de8fc82baa9ce611f9))
+
 ## [0.0.1](https://github.com/AH-Merii/fzf.fish/compare/v0.0.0...v0.0.1) (2026-02-06)
 
 
