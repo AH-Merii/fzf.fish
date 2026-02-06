@@ -1,4 +1,4 @@
-.PHONY: help test lint lint-fish lint-prettier format format-fish format-prettier check ci
+.PHONY: help test lint lint-fish lint-prettier format format-fish format-prettier check ci release-install release
 
 # Colors
 GREEN  := \033[0;32m
@@ -42,3 +42,13 @@ check: lint test  ## Run all checks
 
 ci: check  ## Simulate CI locally
 	@echo "$(GREEN)✓ All CI checks passed$(NC)"
+
+RELEASE_DEPS := semantic-release @semantic-release/changelog @semantic-release/git conventional-changelog-conventionalcommits
+
+release-install:  ## Install semantic-release dependencies
+	@echo "$(YELLOW)Installing release dependencies...$(NC)"
+	@bun install -D $(RELEASE_DEPS)
+
+release: release-install  ## Run semantic-release (CI only)
+	@echo "$(YELLOW)Running semantic-release...$(NC)"
+	@bunx semantic-release
