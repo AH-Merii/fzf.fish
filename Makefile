@@ -49,6 +49,8 @@ release-install:  ## Install semantic-release dependencies
 	@echo "$(YELLOW)Installing release dependencies...$(NC)"
 	@bun install -D $(RELEASE_DEPS)
 
+# semantic-release does not support the bun runtime
+# https://github.com/semantic-release/semantic-release/issues/3527
 release: release-install  ## Run semantic-release (CI only)
 	@echo "$(YELLOW)Running semantic-release...$(NC)"
-	@bunx semantic-release
+	@npx semantic-release
