@@ -166,16 +166,6 @@ set fzf_fd_opts --hidden --max-depth 5
 
 <a id='fd-gi'></a>By default, `fd` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_fd_opts`.
 
-### Add file icons to Search Directory
-
-To display file icons next to entries in [Search Directory][], set `fzf_icon_cmd` to a command that takes file paths as arguments and outputs one icon-decorated line per path. [eza](https://github.com/eza-community/eza) with a [Nerd Font](https://www.nerdfonts.com) is the recommended setup:
-
-```fish
-set fzf_icon_cmd eza -1d --icons=always --color=always --
-```
-
-When unset (default), Search Directory behaves as before with no overhead.
-
 ### Change Search Git Log's commit formatting
 
 [Search Git Log][] executes `git log --format` to format the list of commits. To use your own [commit log format](https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem), set it in `fzf_git_log_format`. For example, this shows the hash and subject for each commit:

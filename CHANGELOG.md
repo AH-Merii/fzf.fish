@@ -1,17 +1,3 @@
-## [0.1.1](https://github.com/AH-Merii/fzf.fish/compare/v0.1.0...v0.1.1) (2026-02-07)
-
-
-### Bug Fixes
-
-* process icon paths one at a time to avoid reordering bugs ([acc2707](https://github.com/AH-Merii/fzf.fish/commit/acc27074c84c9a60db7b049ce1ad851628646b8b))
-
-# [0.1.0](https://github.com/AH-Merii/fzf.fish/compare/v0.0.2...v0.1.0) (2026-02-07)
-
-
-### Features
-
-* add file icon support to Search Directory via fzf_icon_cmd ([9f72d2f](https://github.com/AH-Merii/fzf.fish/commit/9f72d2f7a7f21cec1547c574427b4b454cb7368c))
-
 ## [0.0.2](https://github.com/AH-Merii/fzf.fish/compare/v0.0.1...v0.0.2) (2026-02-06)
 
 
