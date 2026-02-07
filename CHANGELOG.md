@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/AH-Merii/fzf.fish/compare/v0.1.0...v0.1.1) (2026-02-07)
+
+
+### Bug Fixes
+
+* process icon paths one at a time to avoid reordering bugs ([acc2707](https://github.com/AH-Merii/fzf.fish/commit/acc27074c84c9a60db7b049ce1ad851628646b8b))
+
 # [0.1.0](https://github.com/AH-Merii/fzf.fish/compare/v0.0.2...v0.1.0) (2026-02-07)
 
 
