@@ -171,7 +171,7 @@ set fzf_fd_opts --hidden --max-depth 5
 To display file icons next to entries in [Search Directory][], set `fzf_icon_cmd` to a command that takes file paths as arguments and outputs one icon-decorated line per path. [eza](https://github.com/eza-community/eza) with a [Nerd Font](https://www.nerdfonts.com) is the recommended setup:
 
 ```fish
-set fzf_icon_cmd eza -1d --icons --color=always --
+set fzf_icon_cmd eza -1d --icons=always --color=always --
 ```
 
 When unset (default), Search Directory behaves as before with no overhead.
