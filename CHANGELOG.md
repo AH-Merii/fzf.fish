@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/AH-Merii/fzf.fish/compare/v0.1.1...v0.1.2) (2026-02-07)
+
+
+### Reverts
+
+* roll back to v0.0.2 state ([17e2f58](https://github.com/AH-Merii/fzf.fish/commit/17e2f5896e347c45676e938b1dce957e862de797))
+
 ## [0.0.2](https://github.com/AH-Merii/fzf.fish/compare/v0.0.1...v0.0.2) (2026-02-06)
 
 
